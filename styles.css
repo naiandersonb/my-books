@@ -138,6 +138,7 @@ a {
 .card {
   border: 1px solid var(--gray-100);
   padding: 1rem;
+  background-color: var(--white-100);
 }
 
 .read-status {
