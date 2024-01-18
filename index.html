@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Books</title>
+  </head>
+  <body>
+    <header class="container header">
+      <h1 class="title">MyBooks</h1>
+
+      <nav class="navbar">
+        <button id="new-book-btn" class="btn secondary">
+          <i class="ph-bold ph-plus"></i>
+          New Book
+        </button>
+        <a href="">
+          <button class="btn link">
+            <i class="ph-bold ph-github-logo"></i>
+            Repo
+          </button>
+        </a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="empty-state" id="empty-state">
+        <i class="ph-bold ph-books"></i>
+        <p>Sua lista ainda está vazia.</p>
+      </div>
+      <section class="list-books"></section>
+
+      <div class="modal-overlay">
+        <div class="form-container">
+          <h3 class="form-title">New book</h3>
+
+          <button id="close-modal-btn" class="btn close-modal">
+            <i class="ph-bold ph-x"></i>
+          </button>
+          <form id="new-book-form">
+            <div class="form-control">
+              <label for="title">Title</label>
+              <input
+                id="title"
+                name="title"
+                type="text"
+                placeholder="Ex. Harry Potter and the Philosopher's Stone"
+              />
+            </div>
+
+            <div class="form-control">
+              <label for="title">Author</label>
+              <input
+                id="author"
+                name="author"
+                type="text"
+                placeholder="Ex. J. K. Rowling"
+              />
+            </div>
+
+            <div class="form-control">
+              <label for="pages">Pages</label>
+              <input
+                id="pages"
+                min="0"
+                name="pages"
+                type="number"
+                placeholder="Ex. 200"
+              />
+            </div>
+
+            <div class="form-control">
+              <input checked="false" name="read" id="read" type="checkbox" />
+              <label for="read">Is read</label>
+            </div>
+
+            <footer class="form-footer">
+              <button class="btn submit" type="submit" autofocus>
+                Save new book
+              </button>
+              <button
+                id="close-form"
+                class="btn secondary"
+                type="button"
+                autofocus
+              >
+                Cancel
+              </button>
+            </footer>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
