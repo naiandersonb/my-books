@@ -57,6 +57,7 @@ form.addEventListener("submit", (evt) => {
   const book = new Book(title, author, pages, isRead);
 
   books.push(book);
+  setBooksToLocalStorage(books);
 
   displayBook();
 
@@ -106,6 +107,7 @@ function displayBook() {
 
 function removeBook(bookId) {
   books = books.filter((book) => book.id !== bookId.toString());
+  setBooksToLocalStorage(books);
 
   if (books.length > 0) {
     displayBook();
@@ -120,3 +122,17 @@ function showEmptyState(show) {
   const emptyState = document.getElementById("empty-state");
   emptyState.style.display = show ? "flex" : "none";
 }
+
+function setBooksToLocalStorage(books) {
+  localStorage.setItem("@my-books:list", JSON.stringify(books));
+}
+function getBooksToLocalStorage() {
+  const listBooks = JSON.parse(localStorage.getItem("@my-books:list"));
+  if (listBooks) {
+    books = listBooks;
+    displayBook();
+  }
+  console.log(listBooks, books);
+}
+
+getBooksToLocalStorage();
