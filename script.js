@@ -132,7 +132,6 @@ function getBooksToLocalStorage() {
     books = listBooks;
     displayBook();
   }
-  console.log(listBooks, books);
 }
 
 getBooksToLocalStorage();
