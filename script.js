@@ -10,13 +10,15 @@ const closeModalButton = document.getElementById("close-modal-btn");
 const form = document.getElementById("new-book-form");
 const closeForm = document.getElementById("close-form");
 
-const inputs = document.getElementsByTagName("input");
+(function () {
+  const inputs = document.getElementsByTagName("input");
 
-for (let i = 0; i < inputs.length; i++) {
-  if (inputs[i].type == "checkbox") {
-    inputs[i].checked = false;
+  for (let i = 0; i < inputs.length; i++) {
+    if (inputs[i].type == "checkbox") {
+      inputs[i].checked = false;
+    }
   }
-}
+})();
 
 function Book(title, author, pages, isRead) {
   this.title = title;
@@ -126,12 +128,11 @@ function showEmptyState(show) {
 function setBooksToLocalStorage(books) {
   localStorage.setItem("@my-books:list", JSON.stringify(books));
 }
-function getBooksToLocalStorage() {
+
+(function () {
   const listBooks = JSON.parse(localStorage.getItem("@my-books:list"));
   if (listBooks) {
     books = listBooks;
     displayBook();
   }
-}
-
-getBooksToLocalStorage();
+})();
